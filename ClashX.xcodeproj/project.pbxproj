@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080FCF1E2586056800FA9A75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080FCF1D2586056800FA9A75 /* Cocoa.framework */; };
+		080FCF212586056800FA9A75 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080FCF202586056800FA9A75 /* SafariWebExtensionHandler.swift */; };
+		080FCF242586056800FA9A75 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF232586056800FA9A75 /* _locales */; };
+		080FCF262586056800FA9A75 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF252586056800FA9A75 /* images */; };
+		080FCF282586056800FA9A75 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF272586056800FA9A75 /* manifest.json */; };
+		080FCF2A2586056800FA9A75 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF292586056800FA9A75 /* background.js */; };
+		080FCF2C2586056800FA9A75 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF2B2586056800FA9A75 /* content.js */; };
+		080FCF2E2586056800FA9A75 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF2D2586056800FA9A75 /* popup.html */; };
+		080FCF302586056800FA9A75 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF2F2586056800FA9A75 /* popup.css */; };
+		080FCF322586056800FA9A75 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF312586056800FA9A75 /* popup.js */; };
+		080FCF372586056800FA9A75 /* ClashX Safari Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 080FCF1C2586056800FA9A75 /* ClashX Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0D318CDAC9464E01DAD1F92B /* Pods_ClashX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0358BF8F0CBD7FF9A7EA4E30 /* Pods_ClashX.framework */; };
 		4913C82321157D0200F6B87C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4913C82221157D0200F6B87C /* Notification.swift */; };
 		492C4869210EE6B9004554A0 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C4868210EE6B9004554A0 /* ApiRequest.swift */; };
@@ -84,6 +95,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		080FCF352586056800FA9A75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49CF3B1520CD7463001EBF94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 080FCF1B2586056800FA9A75;
+			remoteInfo = "ClashX Safari Extension";
+		};
 		F935B2EB2307B7CD009E4D33 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49CF3B1520CD7463001EBF94 /* Project object */;
@@ -94,6 +112,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		080FCF382586056800FA9A75 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				080FCF372586056800FA9A75 /* ClashX Safari Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		663E4677213FCDC4006F11BB /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,6 +148,19 @@
 
 /* Begin PBXFileReference section */
 		0358BF8F0CBD7FF9A7EA4E30 /* Pods_ClashX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClashX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		080FCF1C2586056800FA9A75 /* ClashX Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ClashX Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		080FCF1D2586056800FA9A75 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		080FCF202586056800FA9A75 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		080FCF232586056800FA9A75 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		080FCF252586056800FA9A75 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		080FCF272586056800FA9A75 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		080FCF292586056800FA9A75 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		080FCF2B2586056800FA9A75 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		080FCF2D2586056800FA9A75 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		080FCF2F2586056800FA9A75 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		080FCF312586056800FA9A75 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
+		080FCF332586056800FA9A75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		080FCF342586056800FA9A75 /* ClashX_Safari_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClashX_Safari_Extension.entitlements; sourceTree = "<group>"; };
 		4913C82221157D0200F6B87C /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		492C4868210EE6B9004554A0 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		492C4870210EF62E004554A0 /* ClashConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashConfig.swift; sourceTree = "<group>"; };
@@ -211,6 +253,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		080FCF192586056800FA9A75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				080FCF1E2586056800FA9A75 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49CF3B1A20CD7463001EBF94 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +280,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		080FCF1F2586056800FA9A75 /* ClashX Safari Extension */ = {
+			isa = PBXGroup;
+			children = (
+				080FCF202586056800FA9A75 /* SafariWebExtensionHandler.swift */,
+				080FCF332586056800FA9A75 /* Info.plist */,
+				080FCF342586056800FA9A75 /* ClashX_Safari_Extension.entitlements */,
+				080FCF222586056800FA9A75 /* Resources */,
+			);
+			path = "ClashX Safari Extension";
+			sourceTree = "<group>";
+		};
+		080FCF222586056800FA9A75 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				080FCF232586056800FA9A75 /* _locales */,
+				080FCF252586056800FA9A75 /* images */,
+				080FCF272586056800FA9A75 /* manifest.json */,
+				080FCF292586056800FA9A75 /* background.js */,
+				080FCF2B2586056800FA9A75 /* content.js */,
+				080FCF2D2586056800FA9A75 /* popup.html */,
+				080FCF2F2586056800FA9A75 /* popup.css */,
+				080FCF312586056800FA9A75 /* popup.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4913C82021157CEB00F6B87C /* Macro */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +463,7 @@
 			children = (
 				49CF3B1F20CD7463001EBF94 /* ClashX */,
 				F9A7C06A2306E874007163C7 /* ProxyConfigHelper */,
+				080FCF1F2586056800FA9A75 /* ClashX Safari Extension */,
 				49CF3B1E20CD7463001EBF94 /* Products */,
 				76229F122B00E935D126742A /* Pods */,
 				CF1AC9FACC36FCE7663C5583 /* Frameworks */,
@@ -398,6 +475,7 @@
 			children = (
 				49CF3B1D20CD7463001EBF94 /* ClashX.app */,
 				F9A7C0692306E874007163C7 /* com.west2online.ClashX.ProxyConfigHelper */,
+				080FCF1C2586056800FA9A75 /* ClashX Safari Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				0358BF8F0CBD7FF9A7EA4E30 /* Pods_ClashX.framework */,
+				080FCF1D2586056800FA9A75 /* Cocoa.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -479,6 +558,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		080FCF1B2586056800FA9A75 /* ClashX Safari Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 080FCF3B2586056800FA9A75 /* Build configuration list for PBXNativeTarget "ClashX Safari Extension" */;
+			buildPhases = (
+				080FCF182586056800FA9A75 /* Sources */,
+				080FCF192586056800FA9A75 /* Frameworks */,
+				080FCF1A2586056800FA9A75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ClashX Safari Extension";
+			productName = "ClashX Safari Extension";
+			productReference = 080FCF1C2586056800FA9A75 /* ClashX Safari Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		49CF3B1C20CD7463001EBF94 /* ClashX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49CF3B2D20CD7465001EBF94 /* Build configuration list for PBXNativeTarget "ClashX" */;
@@ -490,11 +586,13 @@
 				A741C26F5755233F0D7CEC6F /* [CP] Embed Pods Frameworks */,
 				663E4677213FCDC4006F11BB /* Copy Files */,
 				494ED8F023EB0B36008D5D2F /* Run Script - Sparkle */,
+				080FCF382586056800FA9A75 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F935B2EC2307B7CD009E4D33 /* PBXTargetDependency */,
+				080FCF362586056800FA9A75 /* PBXTargetDependency */,
 			);
 			name = ClashX;
 			productName = ClashX;
@@ -561,11 +659,27 @@
 			targets = (
 				49CF3B1C20CD7463001EBF94 /* ClashX */,
 				F9A7C0682306E874007163C7 /* com.west2online.ClashX.ProxyConfigHelper */,
+				080FCF1B2586056800FA9A75 /* ClashX Safari Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		080FCF1A2586056800FA9A75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				080FCF2A2586056800FA9A75 /* background.js in Resources */,
+				080FCF302586056800FA9A75 /* popup.css in Resources */,
+				080FCF2E2586056800FA9A75 /* popup.html in Resources */,
+				080FCF262586056800FA9A75 /* images in Resources */,
+				080FCF282586056800FA9A75 /* manifest.json in Resources */,
+				080FCF242586056800FA9A75 /* _locales in Resources */,
+				080FCF2C2586056800FA9A75 /* content.js in Resources */,
+				080FCF322586056800FA9A75 /* popup.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49CF3B1B20CD7463001EBF94 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -641,6 +755,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		080FCF182586056800FA9A75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				080FCF212586056800FA9A75 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49CF3B1920CD7463001EBF94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -720,6 +842,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		080FCF362586056800FA9A75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 080FCF1B2586056800FA9A75 /* ClashX Safari Extension */;
+			targetProxy = 080FCF352586056800FA9A75 /* PBXContainerItemProxy */;
+		};
 		F935B2EC2307B7CD009E4D33 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F9A7C0682306E874007163C7 /* com.west2online.ClashX.ProxyConfigHelper */;
@@ -749,6 +876,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		080FCF392586056800FA9A75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = "ClashX Safari Extension/ClashX_Safari_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D94VUNC966;
+				INFOPLIST_FILE = "ClashX Safari Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.west2online.ClashX.ClashX-Safari-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		080FCF3A2586056800FA9A75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = "ClashX Safari Extension/ClashX_Safari_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D94VUNC966;
+				INFOPLIST_FILE = "ClashX Safari Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.west2online.ClashX.ClashX-Safari-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		49CF3B2B20CD7465001EBF94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1016,6 +1190,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		080FCF3B2586056800FA9A75 /* Build configuration list for PBXNativeTarget "ClashX Safari Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				080FCF392586056800FA9A75 /* Debug */,
+				080FCF3A2586056800FA9A75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		49CF3B1820CD7463001EBF94 /* Build configuration list for PBXProject "ClashX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
