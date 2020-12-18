@@ -14,9 +14,9 @@ import os.log
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 
 	func beginRequest(with context: NSExtensionContext) {
-        let item = context.inputItems[0] as! NSExtensionItem
-        let message = item.userInfo?[SFExtensionMessageKey]
-        debugPrint("Received message from browser.runtime.sendNativeMessage: ", message)
+        let item = context.inputItems[0] as? NSExtensionItem
+        let message = item?.userInfo?[SFExtensionMessageKey]
+        print("Received message from browser.runtime.sendNativeMessage: ", message as Any)
 
         let response = NSExtensionItem()
         response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ]
@@ -24,4 +24,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         context.completeRequest(returningItems: [response], completionHandler: nil)
     }
     
+}
+
+fileprivate extension String {
+    static let sfExtensionResponseKey = ""
 }

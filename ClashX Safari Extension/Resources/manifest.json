@@ -15,7 +15,7 @@
     },
 
     "background": {
-        "scripts": [ "background.js" ]
+        "scripts": [ "background.js", "WebRequestMonitor.js", "BinaryHeap.js" ]
     },
 
     "content_scripts": [{
@@ -33,5 +33,5 @@
         }
     },
 
-    "permissions": [ "activeTab" ]
+    "permissions": [ "activeTab", "webRequest", "nativeMessaging" ]
 }
