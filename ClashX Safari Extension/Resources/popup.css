@@ -3,13 +3,62 @@
 }
 
 body {
-    width: 100px;
-    padding: 10px;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin: 0;
+    font-size: 28px;
+}
 
-    font-family: system-ui;
+#navbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(191, 191, 191, 0.72);
+    transition: background-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+    #navbar {
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+    }
+}
+
+#navbar a {
     text-align: center;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 21px;
+    line-height: 1.14286;
+    font-weight: 600;
+    letter-spacing: .011em;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #000;
+    transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.content {
+    padding: 16px;
+    width: 400px;
 }
 
 @media (prefers-color-scheme: dark) {
     /* Dark Mode styles go here. */
+    #navbar {
+        background-color: rgba(50, 50, 50, 0.72);
+        transition: background-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+    }
+    #navbar a {
+        color: #FFF;
+    }
+    @supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+        #ac-localnav.ac-ln-sticking .ac-ln-background {
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+    }
 }

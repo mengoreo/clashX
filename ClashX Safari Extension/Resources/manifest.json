@@ -33,5 +33,7 @@
         }
     },
 
-    "permissions": [ "activeTab", "webRequest", "nativeMessaging" ]
+    "permissions": [ "activeTab", "webRequest", "nativeMessaging" ],
+    
+    "optional_permissions": [ "*://baidu.com/" ]
 }
