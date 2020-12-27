@@ -16,7 +16,7 @@ browser.webRequest.onErrorOccurred.addListener(requestError, {
 });
 
 browser.browserAction.setBadgeText({text: "333"});
-browser.browserAction.setBadgeTextColor({color: "green"});
+
 var _requests = {};
 var _recentRequests = new BinaryHeap(function(req){
     return req._startTime;

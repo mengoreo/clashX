@@ -3,39 +3,87 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="popup.css">
     <script type="module" src="popup.js"></script>
 </head>
 
 <body>
-    <div id="navbar">
+    <template id="resourceStatusTemplate">
+        <div class="module-bg bg-blurred">
+            <div class="module-category">
+                <div id="resourceName" class="name">
+                    <a></a>
+                </div>
+                <div id="resourceTime" class="time">
+                    <a></a>
+                </div>
+            </div>
+
+            <div class="module-content">
+                <div>
+                    <div id="resourceDomain" class="domain">
+                        <a></a>
+                    </div>
+                    <div id="resourceURL" class="url">
+                        <a></a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="actions">
+                        <select class="form-select" id="optionsContainer"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <div id="navbar" class="bg-blurred">
         <a id="openHomePage">Clash Helper</a>
     </div>
 
-    <div class="content">
-        <h3>Sticky Navigation Example</h3>
-        <p>The navbar will stick to the top when you reach its scroll position.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-            Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-            Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-            Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-            Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-            Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-            Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum.
-            Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <div id="failedResources" class="content">
+        <h3></h3>
+
+<!-- 
+        <div class="module-bg bg-blurred">
+            <div class="module-category">
+                <div class="name">
+                    <a>⚠️ FAILED RESOURCE</a>
+                </div>
+
+                <div class="time">
+                    <a>Yesterday, 21:00</a>
+                </div>
+            </div>
+
+            <div class="module-content">
+                <div>
+                    <div class="domain">
+                        <a>devimages-cdn.apple.com</a>
+                    </div>
+                    <div class="url">
+                        <a>https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="actions">
+                        <select class="form-select" name="cars" id="cars">
+                            <optgroup label="Swedish Cars">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saabsssssssss</option>
+                            </optgroup>
+                            <optgroup label="German Cars">
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi" selected>Audi</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
 </body>
 
