@@ -14,13 +14,10 @@
 		080FCF282586056800FA9A75 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF272586056800FA9A75 /* manifest.json */; };
 		080FCF2A2586056800FA9A75 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF292586056800FA9A75 /* background.js */; };
 		080FCF2C2586056800FA9A75 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF2B2586056800FA9A75 /* content.js */; };
-		080FCF2E2586056800FA9A75 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF2D2586056800FA9A75 /* popup.html */; };
-		080FCF302586056800FA9A75 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF2F2586056800FA9A75 /* popup.css */; };
-		080FCF322586056800FA9A75 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF312586056800FA9A75 /* popup.js */; };
 		080FCF372586056800FA9A75 /* ClashX Safari Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 080FCF1C2586056800FA9A75 /* ClashX Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		08550B8725978433003AD950 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 08550B8625978433003AD950 /* bootstrap.min.css */; };
 		08821D13258BA2DA000EB762 /* WebRequestMonitor.js in Resources */ = {isa = PBXBuildFile; fileRef = 08821D12258BA2DA000EB762 /* WebRequestMonitor.js */; };
 		08821D1A258BB37E000EB762 /* BinaryHeap.js in Resources */ = {isa = PBXBuildFile; fileRef = 08821D19258BB37E000EB762 /* BinaryHeap.js */; };
+		08AF4CF6259889C000864EE9 /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 08AF4CF5259889C000864EE9 /* popup */; };
 		0D318CDAC9464E01DAD1F92B /* Pods_ClashX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0358BF8F0CBD7FF9A7EA4E30 /* Pods_ClashX.framework */; };
 		4913C82321157D0200F6B87C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4913C82221157D0200F6B87C /* Notification.swift */; };
 		492C4869210EE6B9004554A0 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C4868210EE6B9004554A0 /* ApiRequest.swift */; };
@@ -159,14 +156,11 @@
 		080FCF272586056800FA9A75 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		080FCF292586056800FA9A75 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
 		080FCF2B2586056800FA9A75 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
-		080FCF2D2586056800FA9A75 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
-		080FCF2F2586056800FA9A75 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
-		080FCF312586056800FA9A75 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		080FCF332586056800FA9A75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		080FCF342586056800FA9A75 /* ClashX_Safari_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClashX_Safari_Extension.entitlements; sourceTree = "<group>"; };
-		08550B8625978433003AD950 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
 		08821D12258BA2DA000EB762 /* WebRequestMonitor.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = WebRequestMonitor.js; sourceTree = "<group>"; };
 		08821D19258BB37E000EB762 /* BinaryHeap.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = BinaryHeap.js; sourceTree = "<group>"; };
+		08AF4CF5259889C000864EE9 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = popup/popup; sourceTree = "<group>"; };
 		4913C82221157D0200F6B87C /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		492C4868210EE6B9004554A0 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		492C4870210EF62E004554A0 /* ClashConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashConfig.swift; sourceTree = "<group>"; };
@@ -300,17 +294,14 @@
 		080FCF222586056800FA9A75 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				08AF4CF5259889C000864EE9 /* popup */,
 				080FCF232586056800FA9A75 /* _locales */,
 				080FCF252586056800FA9A75 /* images */,
 				080FCF272586056800FA9A75 /* manifest.json */,
 				080FCF292586056800FA9A75 /* background.js */,
 				080FCF2B2586056800FA9A75 /* content.js */,
 				08821D12258BA2DA000EB762 /* WebRequestMonitor.js */,
-				08550B8625978433003AD950 /* bootstrap.min.css */,
 				08821D19258BB37E000EB762 /* BinaryHeap.js */,
-				080FCF2D2586056800FA9A75 /* popup.html */,
-				080FCF2F2586056800FA9A75 /* popup.css */,
-				080FCF312586056800FA9A75 /* popup.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -678,17 +669,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08550B8725978433003AD950 /* bootstrap.min.css in Resources */,
 				080FCF2A2586056800FA9A75 /* background.js in Resources */,
-				080FCF302586056800FA9A75 /* popup.css in Resources */,
+				08AF4CF6259889C000864EE9 /* popup in Resources */,
 				08821D13258BA2DA000EB762 /* WebRequestMonitor.js in Resources */,
-				080FCF2E2586056800FA9A75 /* popup.html in Resources */,
 				080FCF262586056800FA9A75 /* images in Resources */,
 				080FCF282586056800FA9A75 /* manifest.json in Resources */,
 				080FCF242586056800FA9A75 /* _locales in Resources */,
 				08821D1A258BB37E000EB762 /* BinaryHeap.js in Resources */,
 				080FCF2C2586056800FA9A75 /* content.js in Resources */,
-				080FCF322586056800FA9A75 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

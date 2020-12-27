@@ -1,3 +1,4 @@
+import { domainOrHost } from "./tld"
 const failedResources = document.getElementById("failedResources");
 const resourceStatusTemplate = document.getElementById("resourceStatusTemplate");
 
@@ -60,16 +61,14 @@ function buildActions(actions) {
     }
 }
 function insertFaildResource(url) {
+    let domain = domainOrHost(url).toUpperCase();
     let clone = resourceStatusTemplate.content.cloneNode(true);
     console.log(clone);
     let name = clone.getElementById("resourceName").getElementsByTagName("a")[0];
-    name.text = "⚠️ FAILED";
+    name.text = "⚠️ " + domain;
     
     let time = clone.getElementById("resourceTime").getElementsByTagName("a")[0];
     time.text = "Now";
-
-    let resourceDomain = clone.getElementById("resourceDomain").getElementsByTagName("a")[0];
-    resourceDomain.text = "apple.com";
 
     let resourceURL = clone.getElementById("resourceURL").getElementsByTagName("a")[0];
     resourceURL.text = url;
@@ -79,10 +78,18 @@ function insertFaildResource(url) {
 
 window.onload = function() {
     buildActions({"Group1": ["proxy1", "proxy2", "direct"], "Group2": ["proxy1", "proxy2", "direct"]});
-    insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
-    insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
-    insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
-    insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
+    insertFaildResource("https://github.com/oncletom/tld.js/");
+    insertFaildResource("https://wweb.dev/blog/how-to-create-static-website-npm-scripts");
+    insertFaildResource("https://github.com/wwebdev/static-website-template");
+    insertFaildResource("https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix");
+    insertFaildResource("http://192.168.50.1/Main_Login.asp");
+    insertFaildResource("https://192.210.143.221/earnest.deluge.downloads/His.Dark.Materials.S02E06.Malice.REPACK.1080p.AMZN.WEBRip.DDP5.1.x264-NTb[rarbg]/");
+    // insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
+    // insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
+    // insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
+    // insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
+    // insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
+    // insertFaildResource("https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-2.1.dmg");
 };
 
 function openHomePage() {
