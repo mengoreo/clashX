@@ -17,7 +17,7 @@ function hideAllActionsInModules() {
 }
 
 function setupOnHoverModule() {
-    let moduleContents = document.getElementsByClassName("module-bg");
+    let moduleContents = document.getElementsByClassName("infoContainer");
     for (let i=0; i < moduleContents.length; i++) {
         let module = moduleContents[i];
         module.onmouseover = function() {
@@ -91,7 +91,7 @@ function expandFailedResourcesIfNeeded() {
 
     failedResourcesCollapsed = false;
 
-    let modules = document.getElementsByClassName("module-bg");
+    let modules = document.getElementsByClassName("infoContainer");
     let length = modules.length;
     
     for (let i=0; i<length; i++) {
@@ -107,9 +107,9 @@ function collapseFailedResourcesIfNeeded() {
     }
 
     failedResourcesCollapsed = true;
-    let firstHeight = jQuery(".module-bg").css( "height" );;
+    let firstHeight = jQuery(".infoContainer").css( "height" );;
     
-    let modules = document.getElementsByClassName("module-bg");
+    let modules = document.getElementsByClassName("infoContainer");
     let length = modules.length;
 
     if (length > 1) {

@@ -24,7 +24,7 @@ body {
 }
 
 @supports ((backdrop-filter: initial)) {
-    .bg-blurred  {
+    .blurredBg  {
         backdrop-filter: saturate(100%) blur(20px);
     }
 }
@@ -57,7 +57,7 @@ body {
 }
 
 
-.module-bg {
+.infoContainer {
     width: $resourceCardWidth;
     margin-top: $resourceCardGap;
     height: fit-content;
@@ -71,13 +71,13 @@ body {
     overflow: hidden;
 }
 
-.module-category {
+.infoCategory {
     padding-top: 0.3rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
 
-.module-category .name {
+.infoCategory .name {
     text-align: left;
     color: rgb(105, 105, 105);
     font-size: 13px;
@@ -85,21 +85,21 @@ body {
     letter-spacing: .011em;
 }
 
-.module-category .time {
+.infoCategory .time {
     padding-top: 0.13rem;
     text-align: right;
     color: rgb(113, 113, 113);
     font-size: 11px;
 }
 
-.module-bg .actions {
+.infoContainer .actions {
     position: absolute;
     bottom: 6px;
     right: 6px;
     transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
-.module-bg .actions .form-select {
+.infoContainer .actions .form-select {
     font-size: 10px;
     padding: .17rem .5rem .17rem .5rem;
     border-radius: 5px;
@@ -110,16 +110,16 @@ body {
     background-color: rgba(185, 185, 185, 0.3);
 }
 
-.module-bg .actions .form-select {
+.infoContainer .actions .form-select {
     border-color: #fff0;
     box-shadow: -7px -7px 24px rgba(255, 255, 255, 0.4);
 }
 
-.module-bg .actions .form-select option {
+.infoContainer .actions .form-select option {
     word-wrap: break-word;
 }
 
-.module-bg .footer {
+.infoContainer .footer {
     height: 20px;
     position: absolute;
     width: 100%;
@@ -127,7 +127,7 @@ body {
     background: linear-gradient(rgba(235, 235, 235, 0.9), rgba(235, 235, 235, 1));
 }
 
-.module-content .url {
+.infoContent .url {
     padding-top: 0.4rem;
     padding-bottom: 0.3rem;
     font-size: 12px;
@@ -141,7 +141,7 @@ body {
     #navbar a {
         color: #fff;
     }
-    .module-bg {
+    .infoContainer {
         background-color: rgba(32, 32, 32, 0.58);
     }
 
@@ -150,10 +150,10 @@ body {
         box-shadow: 0px 3px 20px 0px rgba(90, 90, 90, 0.2), 0 -3px 20px 0 rgba(70, 68, 68, 0.2);
     }
 
-    .module-category .name {
+    .infoCategory .name {
         color: rgb(184, 184, 184);
     }
-    .module-category .time {
+    .infoCategory .time {
         color: rgb(179, 179, 179);
     }
 }
