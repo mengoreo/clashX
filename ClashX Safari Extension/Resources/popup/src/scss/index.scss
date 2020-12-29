@@ -1,5 +1,7 @@
+@import 'bootstrap.min';
+
 @import '_colors.scss';
-@import '_sizes.scss';
+@import '_resourceCardStyles.scss';
 
 :root {
     color-scheme: light dark;
@@ -10,6 +12,7 @@ body {
     margin: 0;
     font-size: 28px;
     background-color: rgba(0, 0, 0, 0);
+    transition: all 0.5s ease-in-out;
 }
 
 #navbar {
@@ -51,14 +54,17 @@ body {
 
 
 .module-bg {
-    max-width: $contentWidth;
+    width: $resourceCardWidth;
+    margin-top: $resourceCardGap;
     height: fit-content;
-    background-color: rgba(235, 235, 235, 0.5);
+    background-color: $resourceCardBgColor;
     display: grid;
     grid-template-rows: unset;
-    padding: 0.4rem 0.8rem;
-    border-radius: 0.8rem;
+    padding: $resourceContentVerticlePadding $resourceContentHorzontalPadding;
+    border-radius: $resourceCardBorderRadius;
     box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 .module-category {
@@ -82,18 +88,14 @@ body {
     font-size: 11px;
 }
 
-.module-content {
-    position: relative;
-}
-
-.module-content .actions {
+.module-bg .actions {
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    bottom: 6px;
+    right: 6px;
     transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
-.module-content .actions .form-select {
+.module-bg .actions .form-select {
     font-size: 10px;
     padding: .17rem .5rem .17rem .5rem;
     border-radius: 5px;
@@ -104,13 +106,21 @@ body {
     background-color: rgba(185, 185, 185, 0.3);
 }
 
-.module-content .actions .form-select {
+.module-bg .actions .form-select {
     border-color: #fff0;
     box-shadow: -7px -7px 24px rgba(255, 255, 255, 0.4);
 }
 
-.module-content .actions .form-select option {
+.module-bg .actions .form-select option {
     word-wrap: break-word;
+}
+
+.module-bg .footer {
+    height: 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(rgba(235, 235, 235, 0.9), rgba(235, 235, 235, 1));
 }
 
 .module-content .url {
