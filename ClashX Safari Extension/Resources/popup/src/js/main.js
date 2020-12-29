@@ -95,6 +95,7 @@ function expandFailedResourcesIfNeeded() {
     let length = modules.length;
     
     for (let i=0; i<length; i++) {
+        modules[i].classList.remove("noselect");
         modules[i].removeAttribute("style");
         modules[i].hidden = false;
         modules[i].getElementsByClassName("footer")[0].hidden = true;
@@ -127,6 +128,7 @@ function collapseFailedResourcesIfNeeded() {
         module.style.height = firstHeight;
         module.style.position = "absolute";
         module.style.zIndex = length - i;
+        modules[i].classList.add("noselect");
 
         module.getElementsByClassName("footer")[0].hidden = (i == 0);
 

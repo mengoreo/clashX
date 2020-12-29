@@ -45,6 +45,10 @@ body {
     transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
+.noselect {
+    user-select: none;
+    cursor: pointer;
+}
 .content {
     padding: 16px;
     width: $contentWidth;
