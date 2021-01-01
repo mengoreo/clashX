@@ -1,19 +1,20 @@
 module.exports = {
-    entry: './src/js/main.js',
-    output: {
-        path: __dirname + '/popup',
-        filename: 'bundle.js'
-    },
-    module: {
-        rules: [{
-            test: /\.m?js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
-                }
-            }
-        }]
-    }
-}
+  entry: './src/ts/index.ts',
+  devtool: 'inline-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
+  },
+  output: {
+    filename: 'bundle.js',
+    path: __dirname + '/popup',
+  },
+};
