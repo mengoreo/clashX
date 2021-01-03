@@ -61,7 +61,7 @@ body {
   background-color: $resourceCardBgColor;
   display: grid;
   grid-template-rows: unset;
-  padding: $resourceContentVerticlePadding $resourceContentHorzontalPadding;
+  padding: 6px 12px 9px 9px;
   border-radius: $resourceCardBorderRadius;
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.2);
   position: relative;
@@ -80,6 +80,12 @@ body {
   font-size: 13px;
   font-weight: 200;
   letter-spacing: 0.011em;
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+}
+
+.infoContainer .infoCategory .name a {
+  margin-left: 5px;
 }
 
 .infoContainer .infoCategory .time {
@@ -106,21 +112,18 @@ body {
   word-wrap: break-word;
 }
 
-.infoContainer .footer {
-  height: 20px;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  background: linear-gradient(rgba(235, 235, 235, 0.9), rgba(235, 235, 235, 1));
-}
-
 .infoContainer .infoContent .url {
   padding-top: 0.4rem;
   padding-bottom: 0.3rem;
   font-size: 12px;
   font-weight: normal;
   word-break: break-all;
-  max-width: 300px;
+}
+
+.infoContainer .infoContent .url a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .form-select {

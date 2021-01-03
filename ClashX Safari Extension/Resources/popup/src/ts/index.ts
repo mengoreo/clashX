@@ -1,5 +1,6 @@
 import * as ap from "./appearance";
 import * as bridge from "./bridge"
+import { ReqInfo, RequestStatus } from "./resourcesManager";
 
 document.addEventListener("DOMContentLoaded", () => {
     bridge.setup()
@@ -8,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
         { group: "Group2", proxies: ["proxy1", "proxy2", "direct"] }
     ]);
 
-    ap.insertRequest({ domain: "github.com", url: "https://github.com/oncletom/tld.js/", reqTime: 0, status: 0 })
-    ap.insertRequest({ domain: "wweb.dev", url: "https://wweb.dev/blog/how-to-create-static-website-npm-scripts/wweb.dev/blog/how-to-create-static-website-npm-scripts/wweb.dev/blog/how-to-create-static-website-npm-scripts/wweb.dev/blog/how-to-create-static-website-npm-scripts", reqTime: 0, status: 0 })
-    ap.insertRequest({ domain: "mozilla.org", url: "https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix", reqTime: 0, status: 0 })
-    ap.insertRequest({ domain: "192.168.50.1", url: "http://192.168.50.1/Main_Login.asp", reqTime: 0, status: 0 })
+    ap.insertRequest(new ReqInfo("github.com", "https://github.com/oncletom/tld.js/", 0, RequestStatus.failed))
+    ap.insertRequest(new ReqInfo("wweb.dev", "https://wweb.dev/blog/how-to-create-static-website-npm-scripts/wweb.dev/blog/how-to-create-static-website-npm-scripts/wweb.dev/blog/how-to-create-static-website-npm-scripts/wweb.dev/blog/how-to-create-static-website-npm-scripts", 0, RequestStatus.loading))
+    ap.insertRequest(new ReqInfo("mozilla.org", "https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix", 0, RequestStatus.loading))
+    ap.insertRequest(new ReqInfo("192.168.50.1", "http://192.168.50.1/Main_Login.asp", 0, RequestStatus.loading))
 })

@@ -1,4 +1,4 @@
-enum RequestStatus {
+export enum RequestStatus {
     loading, successful, failed
 }
 
@@ -9,6 +9,43 @@ export class ReqInfo {
         public reqTime: number,
         public status: RequestStatus
     ) { }
+
+    readonly statusElem: HTMLElement = (() => {
+        let textElem = document.createElement("a")
+        switch (this.status) {
+            case RequestStatus.failed:
+                textElem.text = "⚠️"
+                return textElem
+            case RequestStatus.successful:
+                textElem.text = "✅"
+                return textElem
+            case RequestStatus.loading:
+                let spinner = document.createElement("div")
+                spinner.classList.add("ispinner")
+                spinner.classList.add("animating")
+
+                let blade = document.createElement("div")
+                blade.classList.add("ispinner-blade")
+
+                Array.from({ length: 8 }).map(() => blade.cloneNode(true)).forEach((b) => {
+                    spinner.appendChild(b)
+                })
+                return spinner
+        }
+        /*
+            <div class="ispinner gray animating">
+              <div class="ispinner-blade"></div>
+              <div class="ispinner-blade"></div>
+              <div class="ispinner-blade"></div>
+              <div class="ispinner-blade"></div>
+              <div class="ispinner-blade"></div>
+              <div class="ispinner-blade"></div>
+              <div class="ispinner-blade"></div>
+              <div class="ispinner-blade"></div>
+            </div>
+        */
+
+    })()
 }
 
 export class ResourcesManager {

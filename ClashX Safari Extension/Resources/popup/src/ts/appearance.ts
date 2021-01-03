@@ -1,4 +1,5 @@
 import { ResourcesManager, ReqInfo } from "./resourcesManager"
+import "./utils"
 const resourceInfoTemplate = document.querySelector("#resourceStatusTemplate") as HTMLTemplateElement
 const failedReqsContainer = document.querySelector("#failedResources") as HTMLElement
 
@@ -20,13 +21,16 @@ export function insertRequest(reqInfo: ReqInfo) {
     }
     let clone = resourceInfoTemplate.content.cloneNode(true) as DocumentFragment
 
-    let name = clone.querySelector("#resourceName").querySelector("a")
-    name.text = reqInfo.status.toLocaleString() + reqInfo.domain
+    let statusContainer = clone.querySelector("#resourceName").querySelector(".statusContainer") as HTMLDivElement
+    statusContainer.appendChild(reqInfo.statusElem)
 
-    let time = clone.querySelector("#resourceTime").querySelector("a")
+    let name = clone.querySelector("#resourceName").querySelector(".domain") as HTMLAnchorElement
+    name.text = reqInfo.domain
+
+    let time = clone.querySelector("#resourceTime").querySelector("a") as HTMLAnchorElement
     time.text = "Now"
 
-    let resourceURL = clone.querySelector("#resourceURL").querySelector("a");
+    let resourceURL = clone.querySelector("#resourceURL").querySelector("a") as HTMLAnchorElement
     resourceURL.text = reqInfo.url
 
     clone.firstElementChild.classList.add(reqInfo.domain)
@@ -103,19 +107,17 @@ function expandFailedResourcesIfNeeded() {
     let containers = document.querySelectorAll(".infoContainer") as NodeListOf<HTMLElement>;
 
     containers.forEach((ct) => {
+        (ct.querySelector("#resourceURL a") as HTMLAnchorElement).style.webkitLineClamp = "3"
         ct.classList.remove("noselect")
         ct.removeAttribute("style")
         ct.hidden = false
-
-        let footer = ct.querySelector(".footer") as HTMLElement
-        footer.hidden = true
     })
 }
 
 function collapseFailedResourcesIfNeeded() {
-    if (faildReqsCollapsed) {
-        return
-    }
+    let firstURL = document.querySelector("#resourceURL a") as HTMLAnchorElement
+    // update first computed height
+    (document.querySelector("#resourceURL a") as HTMLAnchorElement).style.webkitLineClamp = `${firstURL.numberOfLines()}`
 
     let firstHeight = parseInt(getComputedStyle(document.querySelector(".infoContainer")).height) || 0
     let containers = document.querySelectorAll(".infoContainer") as NodeListOf<HTMLElement>
@@ -134,13 +136,11 @@ function collapseFailedResourcesIfNeeded() {
 
 
     containers.forEach((ct, index) => {
+        (ct.querySelector("#resourceURL a") as HTMLAnchorElement).style.webkitLineClamp = `${firstURL.numberOfLines()}`
         ct.style.height = `${firstHeight}px`
         ct.style.position = "absolute"
         ct.style.zIndex = `${containers.length - index}`
         ct.classList.add("noselect");
-
-        let footer = ct.querySelector(".footer") as HTMLElement
-        footer.hidden = index == 0;
 
         let scale = 1 - index / 20;
         let marginTop = 10 * index;
