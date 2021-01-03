@@ -3,7 +3,7 @@
 @import "_effects.scss";
 @import "_shapes.scss";
 
-:root  {
+:root {
   color-scheme: light dark;
 }
 
@@ -79,13 +79,19 @@ body {
   text-align: left;
   color: rgb(105, 105, 105);
   font-size: 13px;
-  font-weight: 200;
+  font-weight: bold;
   letter-spacing: 0.011em;
   display: grid;
   grid-template-columns: 0fr 1fr;
 }
 
+.infoContainer .infoCategory .name .statusContainer {
+  width: 20px;
+  height: 20px;
+}
+
 .infoContainer .infoCategory .name a {
+  margin-top: 1.5px;
   margin-left: 5px;
 }
 

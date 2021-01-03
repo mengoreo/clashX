@@ -25,7 +25,7 @@ export function insertRequest(reqInfo: ReqInfo) {
     statusContainer.appendChild(reqInfo.statusNode)
 
     let name = clone.querySelector("#resourceName").querySelector(".domain") as HTMLAnchorElement
-    name.text = reqInfo.domain
+    name.text = reqInfo.domain.toUpperCase()
 
     let time = clone.querySelector("#resourceTime").querySelector("a") as HTMLAnchorElement
     time.text = "Now"
