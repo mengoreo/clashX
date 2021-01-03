@@ -1,6 +1,5 @@
 .infoContainer {
   width: $resourceCardWidth;
-  margin-top: $resourceCardGap;
   height: fit-content;
   background-color: $resourceCardBgColor;
   display: grid;
@@ -8,13 +7,11 @@
   padding: 6px 12px 9px 9px;
   border-radius: $resourceCardBorderRadius;
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
+  position: absolute;
   overflow: hidden;
+  transition: margin 0.5s ease-in-out;
 }
 
-.infoContainer.collapsed {
-  margin-top: -50px; // 7-37
-}
 .infoContainer .infoCategory {
   padding-top: 0.3rem;
   display: grid;

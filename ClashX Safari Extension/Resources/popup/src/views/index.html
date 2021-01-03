@@ -1,38 +1,18 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="index.css" />
     <script src="bundle.js" defer></script>
-</head>
+  </head>
 
-<module href="/components/resourceTemplate.html"></module>
+  <module href="/components/resourceTemplate.html"></module>
 
-<body>
+  <body>
     <div id="navbar" class="blurredBg">
-        <a id="openHomePage">Clash Helper</a>
+      <a id="openHomePage">Clash Helper</a>
     </div>
 
-    <div id="failedResources" class="content">
-        <div class="titleBar collapsed">
-            <a>Failed Requests</a>
-            <button id="collapseButton" type="button">Show Less</button>
-            <select class="blurredBg form-select squeezed" id="changeAllButton">
-                <option selected>Change All</option>
-                <optgroup label="Group1">
-                    <option value="proxy1">proxy1</option>
-                    <option value="proxy2">proxy2</option>
-                    <option value="direct">direct</option>
-                </optgroup>
-                <optgroup label="Group2">
-                    <option value="proxy1">proxy1</option>
-                    <option value="proxy2">proxy2</option>
-                    <option value="direct">direct</option>
-                </optgroup>
-            </select>
-        </div>
-    </div>
-</body>
-
+    <div id="failedResources" class="content"></div>
+  </body>
 </html>

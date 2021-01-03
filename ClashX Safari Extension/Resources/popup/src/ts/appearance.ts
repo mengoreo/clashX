@@ -1,6 +1,8 @@
-import { ResourcesManager, ReqInfo } from "./resourcesManager"
+import { ResourcesManager, ReqInfo, RequestStatus } from "./resourcesManager"
 import "./utils"
+
 const resourceInfoTemplate = document.querySelector("#resourceStatusTemplate") as HTMLTemplateElement
+const titleBarTemplate = document.querySelector("#titleBarTemplate") as HTMLTemplateElement
 const failedReqsContainer = document.querySelector("#failedResources") as HTMLElement
 
 const rsrcMngr = new ResourcesManager()
@@ -12,47 +14,85 @@ export interface ProxyGroup {
 }
 export function prepareWithActions(proxyGroups: Iterable<ProxyGroup>) {
     buildActions(new Set(proxyGroups))
-
-    let showLessButton = document.querySelector("#collapseButton") as HTMLElement
-    let changeAllButton = document.querySelector("#changeAllButton") as HTMLElement
-
-    showLessButton.onmousedown = collapseFailedResourcesIfNeeded
-
-    changeAllButton.onmouseout = () => {
-        changeAllButton.classList.add("squeezed")
-        showLessButton.classList.remove("squeezed")
-    }
-
-    changeAllButton.onmouseenter = () => {
-        showLessButton.classList.add("squeezed")
-        changeAllButton.classList.remove("squeezed")
-    }
 }
 
 export function insertRequest(reqInfo: ReqInfo) {
     if (rsrcMngr.contains(reqInfo)) {
         return
     }
-    let clone = resourceInfoTemplate.content.cloneNode(true) as DocumentFragment
 
-    let statusContainer = clone.querySelector("#resourceName").querySelector(".statusContainer") as HTMLDivElement
-    statusContainer.appendChild(reqInfo.statusNode)
+    switch (reqInfo.status) {
+        case RequestStatus.loading:
+            insertLoading(reqInfo)
+            break;
+        case RequestStatus.failed:
+            insertFailed(reqInfo)
+            break
+        case RequestStatus.successful:
+            insertSuceeded(reqInfo)
+            break
+        default: break
+    }
 
-    let name = clone.querySelector("#resourceName").querySelector(".domain") as HTMLAnchorElement
-    name.text = reqInfo.domain.toUpperCase()
-
-    let time = clone.querySelector("#resourceTime").querySelector("a") as HTMLAnchorElement
-    time.text = "Now"
-
-    let resourceURL = clone.querySelector("#resourceURL").querySelector("a") as HTMLAnchorElement
-    resourceURL.text = reqInfo.url
-
-    clone.firstElementChild.classList.add(reqInfo.domain)
-
-    failedReqsContainer.appendChild(clone)
-    collapseFailedResourcesIfNeeded()
     toggleHiddenOnHover(reqInfo.domain, ".actions select")
     rsrcMngr.insertRequest(reqInfo)
+}
+
+function insertFailed(reqInfo: ReqInfo) {
+    if (rsrcMngr.failedURLs.size > 0 && failedReqsContainer.querySelector(".titleBar") == null) {
+        let titleBarClone = titleBarTemplate.content.cloneNode(true) as DocumentFragment
+        titleBarClone.querySelector("a").text = "Failed Requests"
+        let showLessButton = titleBarClone.querySelector("#collapseButton") as HTMLElement
+        let changeAllButton = titleBarClone.querySelector("#changeAllButton") as HTMLElement
+
+        showLessButton.onmousedown = collapseFailedResourcesIfNeeded
+
+        changeAllButton.onmouseout = () => {
+            changeAllButton.classList.add("squeezed")
+            showLessButton.classList.remove("squeezed")
+        }
+
+        changeAllButton.onmouseenter = () => {
+            showLessButton.classList.add("squeezed")
+            changeAllButton.classList.remove("squeezed")
+        }
+
+        failedReqsContainer.insertAdjacentElement("afterbegin", titleBarClone.firstElementChild)
+    }
+    // pending info
+    let pendingInfo = resourceInfoTemplate.content.cloneNode(true) as DocumentFragment
+    let statusContainer = pendingInfo.querySelector("#resourceName").querySelector(".statusContainer") as HTMLDivElement
+    statusContainer.appendChild(reqInfo.statusNode)
+
+    let name = pendingInfo.querySelector("#resourceName").querySelector(".domain") as HTMLAnchorElement
+    name.text = reqInfo.domain.toUpperCase()
+
+    let time = pendingInfo.querySelector("#resourceTime").querySelector("a") as HTMLAnchorElement
+    time.text = "Now"
+
+    let resourceURL = pendingInfo.querySelector("#resourceURL").querySelector("a") as HTMLAnchorElement
+    resourceURL.text = reqInfo.url
+
+    pendingInfo.firstElementChild.classList.add(reqInfo.domain);
+
+    (pendingInfo.firstElementChild as HTMLElement).style.marginBottom = "0px";
+    (pendingInfo.firstElementChild as HTMLElement).style.zIndex = rsrcMngr.failedURLs.size.toString()
+
+    if (rsrcMngr.failedURLs.size > 0) {
+        failedReqsContainer.querySelector(".titleBar")?.insertAdjacentElement("afterend", pendingInfo.firstElementChild)
+    } else {
+        failedReqsContainer.insertAdjacentElement("afterbegin", pendingInfo.firstElementChild)
+    }
+    collapseFailedResourcesIfNeeded()
+
+}
+
+function insertSuceeded(reqInfo: ReqInfo) {
+
+}
+
+function insertLoading(reqInfo: ReqInfo) {
+
 }
 
 function buildActions(proxyGroups: Set<ProxyGroup>) {
@@ -63,6 +103,8 @@ function buildActions(proxyGroups: Set<ProxyGroup>) {
     let optionsContainer = resourceInfoTemplate.content.querySelector("#optionsContainer") as HTMLSelectElement
     optionsContainer.disabled = faildReqsCollapsed
 
+    let titleBarOptionsContainer = titleBarTemplate.content.querySelector("#changeAllButton") as HTMLSelectElement
+
     proxyGroups.forEach((pgroup) => {
         if (proxyGroups.size == 1) {
             pgroup.proxies.forEach((proxy) => {
@@ -70,6 +112,9 @@ function buildActions(proxyGroups: Set<ProxyGroup>) {
                 option.value = proxy
                 option.text = proxy
                 optionsContainer.appendChild(option)
+
+                let titleBarOption = option.cloneNode(true)
+                titleBarOptionsContainer.appendChild(titleBarOption)
             })
         } else {
             let optionGroup = document.createElement("optgroup")
@@ -83,28 +128,36 @@ function buildActions(proxyGroups: Set<ProxyGroup>) {
             })
 
             optionsContainer.appendChild(optionGroup)
+
+            let titleBarOptionGroup = optionGroup.cloneNode(true)
+            titleBarOptionsContainer.appendChild(titleBarOptionGroup)
         }
     })
 }
 
 function toggleHiddenOnHover(containerClass: string, targetSelector: string) {
-    let module = document.getElementsByClassName(containerClass)[0] as HTMLElement
-    let target = module.querySelector(targetSelector) as HTMLElement
-    module.onmouseenter = () => {
+    let container = failedReqsContainer.getElementsByClassName(containerClass)[0] as HTMLElement
+    let target = failedReqsContainer.querySelector(targetSelector) as HTMLElement
+    if (container == null) {
+        return
+    }
+    container.onmouseenter = () => {
         if (faildReqsCollapsed) {
             return
         }
-        (target as HTMLSelectElement).disabled = faildReqsCollapsed
+        (target as HTMLSelectElement).disabled = faildReqsCollapsed;
+        (target as HTMLSelectElement).hidden = faildReqsCollapsed;
 
         target.classList.remove("fadeout")
         target.classList.add("fadein")
     }
-    module.onmouseleave = () => {
+    container.onmouseleave = () => {
         if (faildReqsCollapsed) {
             return
         }
 
-        (target as HTMLSelectElement).disabled = true
+        (target as HTMLSelectElement).disabled = true;
+        (target as HTMLSelectElement).hidden = true
 
         target.classList.remove("fadein")
         target.classList.add("fadeout")
@@ -118,66 +171,75 @@ function expandFailedResourcesIfNeeded() {
 
     faildReqsCollapsed = false;
 
-    let firstResource = document.querySelector(".infoContainer") as HTMLElement
+    let firstResource = failedReqsContainer.querySelector(".infoContainer") as HTMLElement
     firstResource.classList.remove("collapsed")
 
-    let titleBar = document.querySelector(".titleBar") as HTMLElement
+    let titleBar = failedReqsContainer.querySelector(".titleBar") as HTMLElement
     titleBar.classList.remove("collapsed")
 
-    let containers = document.querySelectorAll(".infoContainer") as NodeListOf<HTMLElement>;
+    let containers = failedReqsContainer.querySelectorAll(".infoContainer") as NodeListOf<HTMLElement>;
 
-    containers.forEach((ct) => {
+    containers.forEach((ct, index) => {
         (ct.querySelector("#resourceURL a") as HTMLAnchorElement).style.webkitLineClamp = "3"
         ct.classList.remove("noselect")
-        ct.removeAttribute("style")
-        ct.hidden = false
+        ct.style.height = null
+        let lastCtMarginTop = index > 0 ? parseInt(containers[index - 1].style.marginTop) || 0 : titleBar.offsetHeight || 0
+        let lastCtHeight = index > 0 ? containers[index - 1].offsetHeight || 0 : 0
+        let lastBottomGap = index > 0 ? parseInt(containers[index - 1].style.paddingBottom) || 0 : 0
+
+        ct.style.marginTop = `${lastCtMarginTop + lastCtHeight + lastBottomGap}px`
+        ct.style.paddingBottom = "7px"
+        ct.style.transform = null
+        if (index > 2) {
+            ct.classList.remove("fadeout");
+            ct.classList.add("fadein");
+        }
     })
 }
 
 function collapseFailedResourcesIfNeeded() {
 
-    let titleBar = document.querySelector(".titleBar") as HTMLElement
-    titleBar.classList.add("collapsed")
+    let titleBar = failedReqsContainer.querySelector(".titleBar") as HTMLElement
+    titleBar?.classList.add("collapsed")
 
-    let firstURL = document.querySelector("#resourceURL a") as HTMLAnchorElement
+    let firstURL = failedReqsContainer.querySelector("#resourceURL a") as HTMLAnchorElement
     // update first computed height
-    (document.querySelector("#resourceURL a") as HTMLAnchorElement).style.webkitLineClamp = `${firstURL.numberOfLines()}`
+    (failedReqsContainer.querySelector("#resourceURL a") as HTMLAnchorElement).style.webkitLineClamp = `${firstURL.numberOfLines()}`
 
-    let firstResource = document.querySelector(".infoContainer") as HTMLElement
-    firstResource.classList.add("collapsed")
+    let firstResource = failedReqsContainer.querySelector(".infoContainer") as HTMLElement
 
     let firstMarginTop = parseInt(getComputedStyle(firstResource).marginTop) || 0
     let firstHeight = parseInt(getComputedStyle(firstResource).height) || 0
-    let containers = document.querySelectorAll(".infoContainer") as NodeListOf<HTMLElement>
+    let containers = failedReqsContainer.querySelectorAll(".infoContainer") as NodeListOf<HTMLElement>
 
 
-    faildReqsCollapsed = containers.length > 2
-
-    if (containers.length > 1) {
-        let contentArea = document.querySelector(".contentArea") as HTMLElement
-        contentArea.onmousedown = () => {
-            if (faildReqsCollapsed) {
-                expandFailedResourcesIfNeeded()
-            }
-        }
-    }
-
+    faildReqsCollapsed = containers.length > 1
 
     containers.forEach((ct, index) => {
         (ct.querySelector("#resourceURL a") as HTMLAnchorElement).style.webkitLineClamp = `${firstURL.numberOfLines()}`
         ct.style.height = `${firstHeight}px`
-        ct.style.position = "absolute"
-        ct.style.zIndex = `${containers.length - index}`
         ct.classList.add("noselect");
 
+        ct.onmousedown = null
         let scale = 1 - index / 20;
-        let marginTop = 10 * index + firstMarginTop;
+        let marginTop = 10 * index;
         ct.style.transform = `scale(${scale})`;
-        if (index > 0) {
+        let contentArea = ct.querySelector(".contentArea") as HTMLElement
+        if (index == 0) {
+            contentArea.onmousedown = () => {
+                if (faildReqsCollapsed) {
+                    expandFailedResourcesIfNeeded()
+                }
+            }
+            ct.style.marginTop = `0px`;
+        } else {
+            contentArea.onmousedown = null
             ct.style.marginTop = `${marginTop}px`;
         }
+
         if (index > 2) {
-            ct.style.display = "none";
+            ct.classList.remove("fadein");
+            ct.classList.add("fadeout");
         }
     })
 }

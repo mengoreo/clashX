@@ -23,10 +23,8 @@ body {
 }
 
 .content {
-  margin-top: 30px;
   padding: $contentPadding;
   width: $contentWidth;
   position: relative;
   top: $contentTop;
-  transition: all 0.5s ease-in-out;
 }
