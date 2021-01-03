@@ -16,6 +16,8 @@ export function prepareWithActions(proxyGroups: Iterable<ProxyGroup>) {
     let showLessButton = document.querySelector("#collapseButton") as HTMLElement
     let changeAllButton = document.querySelector("#changeAllButton") as HTMLElement
 
+    showLessButton.onmousedown = collapseFailedResourcesIfNeeded
+
     changeAllButton.onmouseout = () => {
         changeAllButton.classList.add("squeezed")
         showLessButton.classList.remove("squeezed")
@@ -116,6 +118,12 @@ function expandFailedResourcesIfNeeded() {
 
     faildReqsCollapsed = false;
 
+    let firstResource = document.querySelector(".infoContainer") as HTMLElement
+    firstResource.classList.remove("collapsed")
+
+    let titleBar = document.querySelector(".titleBar") as HTMLElement
+    titleBar.classList.remove("collapsed")
+
     let containers = document.querySelectorAll(".infoContainer") as NodeListOf<HTMLElement>;
 
     containers.forEach((ct) => {
@@ -127,11 +135,19 @@ function expandFailedResourcesIfNeeded() {
 }
 
 function collapseFailedResourcesIfNeeded() {
+
+    let titleBar = document.querySelector(".titleBar") as HTMLElement
+    titleBar.classList.add("collapsed")
+
     let firstURL = document.querySelector("#resourceURL a") as HTMLAnchorElement
     // update first computed height
     (document.querySelector("#resourceURL a") as HTMLAnchorElement).style.webkitLineClamp = `${firstURL.numberOfLines()}`
 
-    let firstHeight = parseInt(getComputedStyle(document.querySelector(".infoContainer")).height) || 0
+    let firstResource = document.querySelector(".infoContainer") as HTMLElement
+    firstResource.classList.add("collapsed")
+
+    let firstMarginTop = parseInt(getComputedStyle(firstResource).marginTop) || 0
+    let firstHeight = parseInt(getComputedStyle(firstResource).height) || 0
     let containers = document.querySelectorAll(".infoContainer") as NodeListOf<HTMLElement>
 
 
@@ -155,10 +171,11 @@ function collapseFailedResourcesIfNeeded() {
         ct.classList.add("noselect");
 
         let scale = 1 - index / 20;
-        let marginTop = 10 * index;
+        let marginTop = 10 * index + firstMarginTop;
         ct.style.transform = `scale(${scale})`;
-        ct.style.marginTop = `${marginTop}px`;
-
+        if (index > 0) {
+            ct.style.marginTop = `${marginTop}px`;
+        }
         if (index > 2) {
             ct.style.display = "none";
         }

@@ -12,7 +12,6 @@ body {
   margin: 0;
   font-size: $bodyFontSize;
   background-color: rgba(0, 0, 0, 0);
-  transition: all 0.5s ease-in-out;
 }
 
 #navbar {
@@ -53,6 +52,7 @@ body {
   width: $contentWidth;
   position: relative;
   top: $contentTop;
+  transition: all 0.5s ease-in-out;
 }
 
 .content .titleBar {
@@ -64,6 +64,7 @@ body {
   opacity: 1;
   grid-template-columns: 1fr 0fr 0fr;
   font-variant-caps: titling-caps;
+  transition: all 0.5s ease-in-out;
 }
 
 .content .titleBar.collapsed {
@@ -133,6 +134,9 @@ body {
   overflow: hidden;
 }
 
+.infoContainer.collapsed {
+  margin-top: -50px; // 7-37
+}
 .infoContainer .infoCategory {
   padding-top: 0.3rem;
   display: grid;
