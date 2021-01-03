@@ -13,6 +13,18 @@ export interface ProxyGroup {
 export function prepareWithActions(proxyGroups: Iterable<ProxyGroup>) {
     buildActions(new Set(proxyGroups))
 
+    let showLessButton = document.querySelector("#collapseButton") as HTMLElement
+    let changeAllButton = document.querySelector("#changeAllButton") as HTMLElement
+
+    changeAllButton.onmouseout = () => {
+        changeAllButton.classList.add("squeezed")
+        showLessButton.classList.remove("squeezed")
+    }
+
+    changeAllButton.onmouseenter = () => {
+        showLessButton.classList.add("squeezed")
+        changeAllButton.classList.remove("squeezed")
+    }
 }
 
 export function insertRequest(reqInfo: ReqInfo) {

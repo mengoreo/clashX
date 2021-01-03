@@ -55,6 +55,70 @@ body {
   top: $contentTop;
 }
 
+.content .titleBar {
+  font-size: 17px;
+  font-weight: bolder;
+  margin-bottom: 13px;
+  margin-top: 0px;
+  display: grid;
+  opacity: 1;
+  grid-template-columns: 1fr 0fr 0fr;
+  font-variant-caps: titling-caps;
+}
+
+.content .titleBar.collapsed {
+  z-index: 0;
+  opacity: 0;
+}
+
+#collapseButton {
+  font-size: 11px;
+  font-weight: normal;
+  border-radius: 12px;
+  height: 24px;
+  width: 72px;
+  white-space: nowrap;
+  background-color: rgba(185, 185, 185, 0.3);
+  background-repeat: no-repeat;
+  background-size: 12px 10px;
+  background-position: right 5px top 4px;
+  border-color: #0000;
+  color: #000;
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.6);
+  transition: all 0.5s ease-in-out;
+}
+
+#collapseButton.squeezed {
+  width: 24px;
+  background-image: url($collapseButton);
+  color: rgba(0, 0, 0, 0);
+  transition: all 0.5s ease-in-out;
+}
+
+#collapseButton:active {
+  color: #000;
+}
+
+#changeAllButton {
+  margin-left: 8px;
+  display: inline-block;
+  border-radius: 12px;
+  height: 24px;
+  width: 72px;
+  background-image: none;
+  background-position: left 3px center;
+  background-repeat: no-repeat;
+  background-size: 12px 10px;
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.6);
+  transition: all 0.5s ease-in-out;
+}
+
+#changeAllButton.squeezed {
+  width: 24px;
+  background-image: url($changeAll);
+  color: rgba(0, 0, 0, 0);
+}
+
 .infoContainer {
   width: $resourceCardWidth;
   margin-top: $resourceCardGap;
