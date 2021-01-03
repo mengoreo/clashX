@@ -1,0 +1,94 @@
+.infoContainer {
+  width: $resourceCardWidth;
+  margin-top: $resourceCardGap;
+  height: fit-content;
+  background-color: $resourceCardBgColor;
+  display: grid;
+  grid-template-rows: unset;
+  padding: 6px 12px 9px 9px;
+  border-radius: $resourceCardBorderRadius;
+  box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.infoContainer.collapsed {
+  margin-top: -50px; // 7-37
+}
+.infoContainer .infoCategory {
+  padding-top: 0.3rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.infoContainer .infoCategory .name {
+  text-align: left;
+  color: rgb(105, 105, 105);
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 0.011em;
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+}
+
+.infoContainer .infoCategory .name .statusContainer {
+  width: 20px;
+  height: 20px;
+}
+
+.infoContainer .infoCategory .name a {
+  margin-top: 1.5px;
+  margin-left: 5px;
+}
+
+.infoContainer .infoCategory .time {
+  padding-top: 0.13rem;
+  text-align: right;
+  color: rgb(113, 113, 113);
+  font-size: 11px;
+}
+
+.infoContainer .actions {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.infoContainer .actions .form-select {
+  opacity: 0;
+  box-shadow: -7px -7px 24px rgba(255, 255, 255, 0.4);
+}
+
+.infoContainer .actions .form-select option {
+  word-wrap: break-word;
+}
+
+.infoContainer .infoContent .url {
+  padding-top: 0.4rem;
+  padding-bottom: 0.3rem;
+  font-size: 12px;
+  font-weight: normal;
+  word-break: break-all;
+}
+
+.infoContainer .infoContent .url a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Dark Mode styles go here. */
+  .infoContainer {
+    background-color: rgba(32, 32, 32, 0.58);
+  }
+
+  .infoCategory .name {
+    color: rgb(184, 184, 184);
+  }
+
+  .infoCategory .time {
+    color: rgb(179, 179, 179);
+  }
+}

@@ -1,3 +1,9 @@
+@supports ((backdrop-filter: initial)) {
+  .blurredBg {
+    backdrop-filter: saturate(100%) blur(20px);
+  }
+}
+
 // fade in/out
 .fadeout {
   animation: fadeOut ease 0.5s;
