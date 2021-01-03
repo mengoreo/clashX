@@ -10,7 +10,7 @@ export class ReqInfo {
         public status: RequestStatus
     ) { }
 
-    readonly statusElem: HTMLElement = (() => {
+    readonly statusNode: Node = (() => {
         let textElem = document.createElement("a")
         switch (this.status) {
             case RequestStatus.failed:
@@ -20,32 +20,28 @@ export class ReqInfo {
                 textElem.text = "✅"
                 return textElem
             case RequestStatus.loading:
-                let spinner = document.createElement("div")
-                spinner.classList.add("ispinner")
-                spinner.classList.add("animating")
-
-                let blade = document.createElement("div")
-                blade.classList.add("ispinner-blade")
-
-                Array.from({ length: 8 }).map(() => blade.cloneNode(true)).forEach((b) => {
-                    spinner.appendChild(b)
-                })
+                let spinner = this.nodeFromHtml(`
+                <div class="ispinner gray animating">
+                    <div class="ispinner-blade"></div>
+                    <div class="ispinner-blade"></div>
+                    <div class="ispinner-blade"></div>
+                    <div class="ispinner-blade"></div>
+                    <div class="ispinner-blade"></div>
+                    <div class="ispinner-blade"></div>
+                    <div class="ispinner-blade"></div>
+                    <div class="ispinner-blade"></div>
+                </div>
+                `)
                 return spinner
         }
-        /*
-            <div class="ispinner gray animating">
-              <div class="ispinner-blade"></div>
-              <div class="ispinner-blade"></div>
-              <div class="ispinner-blade"></div>
-              <div class="ispinner-blade"></div>
-              <div class="ispinner-blade"></div>
-              <div class="ispinner-blade"></div>
-              <div class="ispinner-blade"></div>
-              <div class="ispinner-blade"></div>
-            </div>
-        */
 
     })()
+
+    private nodeFromHtml(html: string): Node {
+        let temp = document.createElement('template');
+        temp.innerHTML = html;
+        return temp.content.cloneNode(true);
+    }
 }
 
 export class ResourcesManager {

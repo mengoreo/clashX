@@ -22,7 +22,7 @@ export function insertRequest(reqInfo: ReqInfo) {
     let clone = resourceInfoTemplate.content.cloneNode(true) as DocumentFragment
 
     let statusContainer = clone.querySelector("#resourceName").querySelector(".statusContainer") as HTMLDivElement
-    statusContainer.appendChild(reqInfo.statusElem)
+    statusContainer.appendChild(reqInfo.statusNode)
 
     let name = clone.querySelector("#resourceName").querySelector(".domain") as HTMLAnchorElement
     name.text = reqInfo.domain
