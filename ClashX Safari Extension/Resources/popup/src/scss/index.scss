@@ -143,7 +143,7 @@ body {
   text-align: left;
   color: rgb(105, 105, 105);
   font-size: 13px;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 0.011em;
   display: grid;
   grid-template-columns: 0fr 1fr;
@@ -175,7 +175,6 @@ body {
 
 .infoContainer .actions .form-select {
   opacity: 0;
-  border-color: #fff0;
   box-shadow: -7px -7px 24px rgba(255, 255, 255, 0.4);
 }
 
@@ -210,7 +209,7 @@ body {
   background-repeat: no-repeat;
   background-position: right 0.4rem center;
   background-size: 12px 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #fff0;
   border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -218,7 +217,7 @@ body {
 }
 
 .form-select:focus {
-  border-color: #86b7fe;
+  border-color: #fff0;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }
@@ -234,18 +233,6 @@ body {
 .form-select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #212529;
-}
-.form-select-sm {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.5rem;
-  font-size: 0.875rem;
-}
-.form-select-lg {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  font-size: 1.25rem;
 }
 @media (prefers-color-scheme: dark) {
   /* Dark Mode styles go here. */
