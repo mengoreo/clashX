@@ -23,13 +23,11 @@ export function insertRequest(reqInfo: ReqInfo) {
 
     switch (reqInfo.status) {
         case RequestStatus.loading:
-            insertLoading(reqInfo)
             break;
         case RequestStatus.failed:
-            insertFailed(reqInfo)
+            insert(reqInfo, failedReqsContainer, "Failed Requests")
             break
         case RequestStatus.successful:
-            insertSuceeded(reqInfo)
             break
         default: break
     }
@@ -38,26 +36,42 @@ export function insertRequest(reqInfo: ReqInfo) {
     rsrcMngr.insertRequest(reqInfo)
 }
 
-function insertFailed(reqInfo: ReqInfo) {
-    if (rsrcMngr.failedURLs.size > 0 && failedReqsContainer.querySelector(".titleBar") == null) {
+function insert(reqInfo: ReqInfo, parentContainer: HTMLElement, titleBarText: string) {
+    if (rsrcMngr.failedURLs.size > 0 && parentContainer.querySelector(".titleBar") == null) {
         let titleBarClone = titleBarTemplate.content.cloneNode(true) as DocumentFragment
-        titleBarClone.querySelector("a").text = "Failed Requests"
+        titleBarClone.querySelector("a").text = titleBarText
         let showLessButton = titleBarClone.querySelector("#collapseButton") as HTMLElement
         let changeAllButton = titleBarClone.querySelector("#changeAllButton") as HTMLElement
 
-        showLessButton.onmousedown = collapseFailedResourcesIfNeeded
+        showLessButton.onmousedown = () => {
+            if (parentContainer.querySelector(".titleBar").classList.contains("collapsed")) {
+                return
+            }
+            collapseFailedResourcesIfNeeded()
+        }
 
         changeAllButton.onmouseout = () => {
+            if (parentContainer.querySelector(".titleBar").classList.contains("collapsed")) {
+                return
+            }
             changeAllButton.classList.add("squeezed")
             showLessButton.classList.remove("squeezed")
         }
 
         changeAllButton.onmouseenter = () => {
+            if (parentContainer.querySelector(".titleBar").classList.contains("collapsed")) {
+                return
+            }
             showLessButton.classList.add("squeezed")
             changeAllButton.classList.remove("squeezed")
         }
 
-        failedReqsContainer.insertAdjacentElement("afterbegin", titleBarClone.firstElementChild)
+        changeAllButton.onmousedown = (e) => {
+            if (parentContainer.querySelector(".titleBar").classList.contains("collapsed")) {
+                e.preventDefault()
+            }
+        }
+        parentContainer.insertAdjacentElement("afterbegin", titleBarClone.firstElementChild)
     }
     // pending info
     let pendingInfo = resourceInfoTemplate.content.cloneNode(true) as DocumentFragment
@@ -79,19 +93,11 @@ function insertFailed(reqInfo: ReqInfo) {
     (pendingInfo.firstElementChild as HTMLElement).style.zIndex = rsrcMngr.failedURLs.size.toString()
 
     if (rsrcMngr.failedURLs.size > 0) {
-        failedReqsContainer.querySelector(".titleBar")?.insertAdjacentElement("afterend", pendingInfo.firstElementChild)
+        parentContainer.querySelector(".titleBar")?.insertAdjacentElement("afterend", pendingInfo.firstElementChild)
     } else {
-        failedReqsContainer.insertAdjacentElement("afterbegin", pendingInfo.firstElementChild)
+        parentContainer.insertAdjacentElement("afterbegin", pendingInfo.firstElementChild)
     }
     collapseFailedResourcesIfNeeded()
-
-}
-
-function insertSuceeded(reqInfo: ReqInfo) {
-
-}
-
-function insertLoading(reqInfo: ReqInfo) {
 
 }
 
