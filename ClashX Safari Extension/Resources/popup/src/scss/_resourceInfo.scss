@@ -9,7 +9,10 @@
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.2);
   position: absolute;
   overflow: hidden;
-  transition: margin 0.5s ease-in-out;
+
+  transition-property: margin, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
 }
 
 .infoContainer .infoCategory {
