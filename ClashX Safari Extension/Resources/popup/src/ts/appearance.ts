@@ -3,7 +3,9 @@ import "./utils"
 
 const resourceInfoTemplate = document.querySelector("#resourceStatusTemplate") as HTMLTemplateElement
 const titleBarTemplate = document.querySelector("#titleBarTemplate") as HTMLTemplateElement
-const failedReqsContainer = document.querySelector("#failedResources") as HTMLElement
+const failedReqsContainer = document.querySelector("#failedRequests") as HTMLElement
+const loadingReqsContainer = document.querySelector("#loadingRequests") as HTMLElement
+const succeededReqsContainer = document.querySelector("#succeededRequests") as HTMLElement
 
 const rsrcMngr = new ResourcesManager()
 var faildReqsCollapsed = false
@@ -23,11 +25,13 @@ export function insertRequest(reqInfo: ReqInfo) {
 
     switch (reqInfo.status) {
         case RequestStatus.loading:
+            insert(reqInfo, loadingReqsContainer, "Loading Requests")
             break;
         case RequestStatus.failed:
             insert(reqInfo, failedReqsContainer, "Failed Requests")
             break
-        case RequestStatus.successful:
+        case RequestStatus.succeeded:
+            insert(reqInfo, succeededReqsContainer, "Succeeded Requests")
             break
         default: break
     }
@@ -37,6 +41,8 @@ export function insertRequest(reqInfo: ReqInfo) {
 }
 
 function insert(reqInfo: ReqInfo, parentContainer: HTMLElement, titleBarText: string) {
+    parentContainer.hidden = false
+
     if (rsrcMngr.failedURLs.size > 0 && parentContainer.querySelector(".titleBar") == null) {
         let titleBarClone = titleBarTemplate.content.cloneNode(true) as DocumentFragment
         titleBarClone.querySelector("a").text = titleBarText

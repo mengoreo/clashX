@@ -1,5 +1,5 @@
 export enum RequestStatus {
-    loading, successful, failed
+    loading, succeeded, failed
 }
 
 export class ReqInfo {
@@ -24,7 +24,7 @@ export class ReqInfo {
                     <path id="warningCircle" data-name="exclamationmark.circle.fill" d="M11.143,21.822a9.111,9.111,0,0,0,3.672-.747A9.726,9.726,0,0,0,19.893,16a9.43,9.43,0,0,0,0-7.334A9.731,9.731,0,0,0,14.8,3.58a9.406,9.406,0,0,0-7.324,0A9.731,9.731,0,0,0,2.393,8.663,9.4,9.4,0,0,0,2.4,16,9.758,9.758,0,0,0,7.48,21.075,9.087,9.087,0,0,0,11.143,21.822Zm0-7.852a.731.731,0,0,1-.82-.811l-.127-4.8a.811.811,0,0,1,.244-.649.947.947,0,0,1,.693-.259.934.934,0,0,1,.684.259.884.884,0,0,1,.264.659l-.137,4.795A.723.723,0,0,1,11.143,13.971Zm0,3.154a1.1,1.1,0,0,1-.771-.3.953.953,0,0,1-.322-.728.964.964,0,0,1,.322-.737,1.148,1.148,0,0,1,1.543,0,.964.964,0,0,1,.322.737.942.942,0,0,1-.327.732A1.113,1.113,0,0,1,11.143,17.125Z" transform="translate(-1.65 -2.838)"/>
                 </svg>
                 `)
-            case RequestStatus.successful:
+            case RequestStatus.succeeded:
                 return this.nodeFromHtml(`
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <defs>
@@ -64,10 +64,10 @@ export class ReqInfo {
 export class ResourcesManager {
     readonly loadingURLs = new Map<string, Set<string>>()
     readonly failedURLs = new Map<string, Set<string>>()
-    readonly successfulURLs = new Map<string, Set<string>>()
+    readonly succeededURLs = new Map<string, Set<string>>()
 
     contains(req: ReqInfo) {
-        return this.loadingURLs.has(req.domain) || this.failedURLs.has(req.domain) || this.successfulURLs.has(req.domain)
+        return this.loadingURLs.has(req.domain) || this.failedURLs.has(req.domain) || this.succeededURLs.has(req.domain)
     }
     insertRequest(req: ReqInfo) {
         switch (req.status) {
@@ -77,8 +77,8 @@ export class ResourcesManager {
             case RequestStatus.failed:
                 this.updateURLs(this.failedURLs, req)
                 break
-            case RequestStatus.successful:
-                this.updateURLs(this.successfulURLs, req)
+            case RequestStatus.succeeded:
+                this.updateURLs(this.succeededURLs, req)
                 break
             default: break
         }

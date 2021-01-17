@@ -11,10 +11,13 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
     filename: 'bundle.js',
     path: __dirname + '/popup',
+  },
+  optimization: {
+    minimize: false
   },
 };
