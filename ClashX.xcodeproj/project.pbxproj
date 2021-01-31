@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080B15A825C6E68D0087F72F /* Witness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49722FEC211F338B00650A41 /* Witness.swift */; };
+		080B15A925C6E68D0087F72F /* FileEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49722FEA211F338B00650A41 /* FileEvent.swift */; };
+		080B15AA25C6E68D0087F72F /* EventStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49722FEB211F338B00650A41 /* EventStream.swift */; };
 		080FCF1E2586056800FA9A75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080FCF1D2586056800FA9A75 /* Cocoa.framework */; };
 		080FCF212586056800FA9A75 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080FCF202586056800FA9A75 /* SafariWebExtensionHandler.swift */; };
 		080FCF242586056800FA9A75 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF232586056800FA9A75 /* _locales */; };
@@ -760,6 +763,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				080FCF212586056800FA9A75 /* SafariWebExtensionHandler.swift in Sources */,
+				080B15A825C6E68D0087F72F /* Witness.swift in Sources */,
+				080B15AA25C6E68D0087F72F /* EventStream.swift in Sources */,
+				080B15A925C6E68D0087F72F /* FileEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
