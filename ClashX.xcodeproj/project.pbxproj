@@ -10,6 +10,7 @@
 		080B15A825C6E68D0087F72F /* Witness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49722FEC211F338B00650A41 /* Witness.swift */; };
 		080B15A925C6E68D0087F72F /* FileEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49722FEA211F338B00650A41 /* FileEvent.swift */; };
 		080B15AA25C6E68D0087F72F /* EventStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49722FEB211F338B00650A41 /* EventStream.swift */; };
+		080B15CA25C6EC670087F72F /* ConfigFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080B15C925C6EC670087F72F /* ConfigFilesManager.swift */; };
 		080FCF1E2586056800FA9A75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080FCF1D2586056800FA9A75 /* Cocoa.framework */; };
 		080FCF212586056800FA9A75 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080FCF202586056800FA9A75 /* SafariWebExtensionHandler.swift */; };
 		080FCF242586056800FA9A75 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF232586056800FA9A75 /* _locales */; };
@@ -152,6 +153,7 @@
 
 /* Begin PBXFileReference section */
 		0358BF8F0CBD7FF9A7EA4E30 /* Pods_ClashX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClashX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		080B15C925C6EC670087F72F /* ConfigFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFilesManager.swift; sourceTree = "<group>"; };
 		080FCF1C2586056800FA9A75 /* ClashX Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ClashX Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		080FCF1D2586056800FA9A75 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		080FCF202586056800FA9A75 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				080FCF202586056800FA9A75 /* SafariWebExtensionHandler.swift */,
+				080B15C925C6EC670087F72F /* ConfigFilesManager.swift */,
 				080FCF332586056800FA9A75 /* Info.plist */,
 				080FCF342586056800FA9A75 /* ClashX_Safari_Extension.entitlements */,
 				080FCF222586056800FA9A75 /* Resources */,
@@ -797,6 +800,7 @@
 				080B15A825C6E68D0087F72F /* Witness.swift in Sources */,
 				080B15AA25C6E68D0087F72F /* EventStream.swift in Sources */,
 				080B15A925C6E68D0087F72F /* FileEvent.swift in Sources */,
+				080B15CA25C6EC670087F72F /* ConfigFilesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
