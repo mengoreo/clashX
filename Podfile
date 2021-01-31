@@ -27,3 +27,10 @@ target 'ClashX' do
   pod "FlexibleDiff"
 end
 
+target 'ClashX Safari Extension' do
+  platform :osx, '10.15.6'
+  inhibit_all_warnings!
+  use_frameworks!
+  pod 'CocoaLumberjack/Swift'
+end
+  
