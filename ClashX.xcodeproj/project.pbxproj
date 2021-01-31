@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		080B157525C670B60087F72F /* ClashConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C4870210EF62E004554A0 /* ClashConfig.swift */; };
-		080B157925C670C80087F72F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BDEDF21196F1E00C5207F /* Logger.swift */; };
 		080FCF1E2586056800FA9A75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080FCF1D2586056800FA9A75 /* Cocoa.framework */; };
 		080FCF212586056800FA9A75 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080FCF202586056800FA9A75 /* SafariWebExtensionHandler.swift */; };
 		080FCF242586056800FA9A75 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 080FCF232586056800FA9A75 /* _locales */; };
@@ -72,7 +70,6 @@
 		49D176A72355FE680093DD7B /* NetworkChangeNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D176A62355FE680093DD7B /* NetworkChangeNotifier.swift */; };
 		49D176A9235614340093DD7B /* ProxyGroupSpeedTestMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D176A8235614340093DD7B /* ProxyGroupSpeedTestMenuItem.swift */; };
 		49D176AB23575BB20093DD7B /* ProxyGroupMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D176AA23575BB20093DD7B /* ProxyGroupMenuItemView.swift */; };
-		C2C2D866A5262651B83180F9 /* Pods_ClashX_Safari_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7B35997310D16178DC8827 /* Pods_ClashX_Safari_Extension.framework */; };
 		F910AA24240134AF00116E95 /* ProxyGroupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F910AA23240134AF00116E95 /* ProxyGroupMenu.swift */; };
 		F915A4622366ADEF004840BE /* ClashConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915A4612366ADEF004840BE /* ClashConnection.swift */; };
 		F9203A26236342820020D57D /* AppDelegate+..swift in Sources */ = {isa = PBXBuildFile; fileRef = F9203A25236342820020D57D /* AppDelegate+..swift */; };
@@ -224,10 +221,7 @@
 		49D176A8235614340093DD7B /* ProxyGroupSpeedTestMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyGroupSpeedTestMenuItem.swift; sourceTree = "<group>"; };
 		49D176AA23575BB20093DD7B /* ProxyGroupMenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyGroupMenuItemView.swift; sourceTree = "<group>"; };
 		5217C006C5A22A1CEA24BFC1 /* Pods-ClashX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClashX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClashX/Pods-ClashX.debug.xcconfig"; sourceTree = "<group>"; };
-		8A7B35997310D16178DC8827 /* Pods_ClashX_Safari_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClashX_Safari_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		944A6DD4913569D78F25746A /* Pods-ClashX Safari Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClashX Safari Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClashX Safari Extension/Pods-ClashX Safari Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		A1485BCE642059532D01B8BA /* Pods-ClashX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClashX.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClashX/Pods-ClashX.release.xcconfig"; sourceTree = "<group>"; };
-		E02D6C032A3F56C2853BCEF8 /* Pods-ClashX Safari Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClashX Safari Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClashX Safari Extension/Pods-ClashX Safari Extension.release.xcconfig"; sourceTree = "<group>"; };
 		F910AA23240134AF00116E95 /* ProxyGroupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyGroupMenu.swift; sourceTree = "<group>"; };
 		F915A4612366ADEF004840BE /* ClashConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashConnection.swift; sourceTree = "<group>"; };
 		F9203A25236342820020D57D /* AppDelegate+..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+..swift"; sourceTree = "<group>"; };
@@ -264,7 +258,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				080FCF1E2586056800FA9A75 /* Cocoa.framework in Frameworks */,
-				C2C2D866A5262651B83180F9 /* Pods_ClashX_Safari_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,8 +518,6 @@
 			children = (
 				5217C006C5A22A1CEA24BFC1 /* Pods-ClashX.debug.xcconfig */,
 				A1485BCE642059532D01B8BA /* Pods-ClashX.release.xcconfig */,
-				944A6DD4913569D78F25746A /* Pods-ClashX Safari Extension.debug.xcconfig */,
-				E02D6C032A3F56C2853BCEF8 /* Pods-ClashX Safari Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -536,7 +527,6 @@
 			children = (
 				0358BF8F0CBD7FF9A7EA4E30 /* Pods_ClashX.framework */,
 				080FCF1D2586056800FA9A75 /* Cocoa.framework */,
-				8A7B35997310D16178DC8827 /* Pods_ClashX_Safari_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -572,7 +562,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 080FCF3B2586056800FA9A75 /* Build configuration list for PBXNativeTarget "ClashX Safari Extension" */;
 			buildPhases = (
-				DB0E291C6BBFF5505DFB6B42 /* [CP] Check Pods Manifest.lock */,
 				080FCF182586056800FA9A75 /* Sources */,
 				080FCF192586056800FA9A75 /* Frameworks */,
 				080FCF1A2586056800FA9A75 /* Resources */,
@@ -763,28 +752,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClashX/Pods-ClashX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB0E291C6BBFF5505DFB6B42 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ClashX Safari Extension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -793,8 +760,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				080FCF212586056800FA9A75 /* SafariWebExtensionHandler.swift in Sources */,
-				080B157925C670C80087F72F /* Logger.swift in Sources */,
-				080B157525C670B60087F72F /* ClashConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,7 +878,6 @@
 /* Begin XCBuildConfiguration section */
 		080FCF392586056800FA9A75 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 944A6DD4913569D78F25746A /* Pods-ClashX Safari Extension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = "ClashX Safari Extension/ClashX_Safari_Extension.entitlements";
@@ -938,7 +902,6 @@
 		};
 		080FCF3A2586056800FA9A75 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E02D6C032A3F56C2853BCEF8 /* Pods-ClashX Safari Extension.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = "ClashX Safari Extension/ClashX_Safari_Extension.entitlements";
